@@ -1,0 +1,175 @@
+\documentclass[11pt, a4paper]{article}
+
+% --- Essential Packages ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage[left=1.0cm, right=1.0cm, top=1.2cm, bottom=1.2cm]{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{tabularx} % Used for the cleaner header layout
+\usepackage{parskip}
+
+% --- Font: Inter (Modern UI look) ---
+\usepackage[sfdefault, medium]{inter} 
+\usepackage{microtype} 
+
+% --- Colors ---
+\definecolor{darkgray}{HTML}{374151}
+
+% --- Global Settings ---
+\pagestyle{empty} 
+
+% --- Section Styling ---
+\titleformat{\section}
+  {\normalfont\small\bfseries\color{darkgray}\uppercase}
+  {}{0pt}{}
+  [{\titlerule[0.4pt]}] % <--- Removed \color{black} from here
+\titlespacing*{\section}{0pt}{10pt}{4pt}
+
+% --- Custom Ultra-Tight List ---
+\newlist{tightitemize}{itemize}{1}
+\setlist[tightitemize]{
+    label=\small$\bullet$,
+    leftmargin=1.2em,
+    rightmargin=0.22\textwidth, % <--- THIS KEEPS THE RIGHT COLUMN CLEAR
+    nosep,           
+    topsep=-14pt,    
+    partopsep=0pt,
+    parsep=0pt,
+    labelsep=0.5em,
+    before=\small
+}
+
+% --- Fixed Header Command for Multi-line Dates ---
+% --- Robust Header Command for Multi-line Dates ---
+\newcommand{\cvitem}[4]{
+  \begin{minipage}[t]{\textwidth}
+    \begin{minipage}[t]{0.8\textwidth}
+      \textbf{#1} \hspace{1pt} \textperiodcentered \hspace{1pt} \textcolor{darkgray}{#2}
+    \end{minipage}%
+    \begin{minipage}[t]{0.2\textwidth}
+      \raggedleft \textit{\small #3} \\
+      \textit{\small \color{darkgray} #4}
+    \end{minipage}
+  \end{minipage}
+  \par\vspace{-5pt} % Pulls the bullet point up tightly
+}
+
+
+
+
+\begin{document}
+
+% Header
+% Header
+\begin{center}
+    {\huge \bfseries Pablo von Baum García} \\[4pt]
+    {\small \color{darkgray} 
+    +49 176 24489161 \quad | \quad 
+    \href{mailto:pablo.vonbaum@icloud.com}{pablo.vonbaum@icloud.com} \quad | \quad 
+    \href{https://pab-g.github.io/pablo.vonbaum.github.io/}{pab-g.github.io}}
+\end{center}
+
+% Education
+\section{Education}
+
+\cvitem{Technical University Munich (TUM)}{B.Sc. Computer Science}{Munich, Germany}{Oct 2022 — Apr 2026}
+\begin{tightitemize}
+    \item Minor: Mathematics; GPA: 1.7 (last 2 years) --- 2.0 overall
+\end{tightitemize}
+
+\vspace{8pt}
+
+\cvitem{Korea Advanced Institute of Science and Technology (KAIST)}{Exchange}{Daejeon, South Korea}{Feb 2025 — Jul 2025}
+\begin{tightitemize}
+    \item Machine Learning for 3D data, Abstract Algebra,  Robotics
+\end{tightitemize}
+
+\vspace{8pt}
+
+\cvitem{King Edwards School Witely}{International Baccalaureate}{Godalming, United Kingdom}{Sep 2020 — Jul 2022}
+\vspace{-15pt}
+\begin{tightitemize}
+    \item International Baccalaureate, 43/45 (top of the year)
+\end{tightitemize}
+
+% Experience
+\section{Experience}
+
+\cvitem{Attention-Based Terrain Encoding for Quadruped Locomotion}{Thesis}{Munich, Germany}{Oct 2025 — Mar 2026}
+\begin{tightitemize}
+    \item Developed a Transformer-based terrain encoder utilizing cross-attention mechanisms to fuse exteroceptive and proprioceptive sensor data
+    \item Integrated attention-based perception encoder into Proximal Policy Optimization (PPO) within the Isaac Lab/Sim environment
+    \item Evaluated and deployed robust locomotion policies for a Unitree Go2 quadruped across sparse and non-continuous terrains
+\end{tightitemize}
+
+\vspace{8pt}
+
+\cvitem{Introduction to Deep Learning Tutor}{Exam Tutor}{Munich, Germany}{Aug 2025 --- Sep 2025 \\ Feb 2026 --- Mar 2026}
+\vspace{-12pt}
+\begin{tightitemize}
+    \item Selected for graduate-level exam administration and marking scheme design following exceptional academic performance as an undergraduate student
+\end{tightitemize}
+
+\vspace{8pt}
+
+\cvitem{Robotics Engineer at RoboTUM}{Software Team}{Munich, Germany}{Nov 2025 — Present}
+\begin{tightitemize}
+    \item Developing a humanoid walking policy in Isaac Lab for an in-house robot platform
+    \item Focusing on closing sim-to-real gap for deploying learned policies on physical hardware
+\end{tightitemize}
+
+\vspace{8pt}
+
+\cvitem{Working Student at Agile Robots}{Robotics Intern}{Munich, Germany}{Sep 2024 — Feb 2025}
+\begin{tightitemize}
+    \item Implemented Inverse Kinematics (IK) mapping for Manus teleoperation, enhancing manipulation precision over legacy joint-angle control.
+    \item Engineered ROS 2 data pipelines and visualization tools to curate high-fidelity demonstration datasets for imitation learning
+\end{tightitemize}
+
+\vspace{8pt}
+
+\cvitem{Intern at LGT Capital Partners}{Internship}{London, England}{Sep 2023 — Oct 2023}
+\begin{tightitemize}
+    \item Optimized manual CLO data workflows by developing an automated VBA-integrated database solution, increasing reporting throughput and accuracy
+\end{tightitemize}
+
+% Selected Projects
+\section{Selected Projects}
+\cvitem{Advanced Deep Learning for Computer Vision (TUM)}{Course Project}{Munich, Germany}{Oct 2025 — Feb 2026}
+\begin{tightitemize}
+    \item Researched image-conditioned 3D shape editing by leveraging ImageDream architectures and DDPM-Inversion techniques
+\end{tightitemize}
+
+\vspace{8pt}
+
+\cvitem{Splatfinity -- Machine Learning for 3D Data (KAIST)}{Course Project}{Daejeon, South Korea}{Feb 2025 — Jul 2025}
+\begin{tightitemize}
+    \item Extended a 3D Gaussian Splatting (3DGS) pipeline to facilitate creative generative views and environmental synthesis
+\end{tightitemize}
+\vspace{8pt}
+\cvitem{Eye-voices Student Club}{Co-Founder}{Munich, Germany}{Sep 2025 — Present}
+\begin{tightitemize}
+    \item Co-founded a TUM-accredited initiative to engineer assistive communication platforms for individuals with severe motor paralysis
+    \item Directing the development of real-time Computer Vision software for high-precision gaze and blink tracking
+\end{tightitemize}
+
+
+\vspace{8pt}
+
+\cvitem{Python Teacher at ReDI-School}{Volunteer Instructor}{Munich, Germany}{Sep 2024 — Dec 2024}
+\begin{tightitemize}
+    \item Instructed youth from refugee backgrounds in Python fundamentals, algorithm design, and problem-solving
+\end{tightitemize}
+
+% Skills & Interests
+\section{Skills \& Interests}
+\vspace{0pt}
+\begin{tabular}{@{}p{2.5cm} p{15.5cm}@{}}
+    \small \textbf{Technical:} & \small Python, PyTorch, Isaac Sim/Lab, ROS2, C/C++, R, Ocaml, Java, VBA \\
+    \small \textbf{Languages:} & \small Spanish, German, English \\
+\end{tabular}
+\end{document}
