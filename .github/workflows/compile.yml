@@ -19,7 +19,7 @@ jobs:
           path: cv.pdf
 
       - name: Create Release and Upload PDF
-        if: github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/master'
         uses: softprops/action-gh-release@v2 
         with:
           files: cv.pdf 
